@@ -14,8 +14,7 @@ label { float: left;
         width: 5em;
 		padding-right: 1em;
         text-align: right; }
-img.fotorama__img {width: 50%;
-    height: 50%;}
+
 
             
 h1{font-family:sans-serif;
@@ -30,7 +29,14 @@ body{background-color: darkgrey;}
         
 #submit { margin-left: 7em; }
 #details {display: none;}
+            
+/* For devices 400px and larger: */
+@media only screen and (min-device-width: 400px) {
+  img {
+    background-image: url("NWFireworks.jpg") width=100px;
+        
 		</style>
+        
 	</head> 
 <body> 
 <h1> Javascript Form</h1>
@@ -64,11 +70,15 @@ function validateForm(){
         alert("Name field cannot be empty");
         return false; 
 }
-<input id=".userAge.value" value"<18">
-    if (document.forms[0].userAge.value <18, document.forms[0].userAge.value >100){
-        alert("You are underage, Sorry! You do not have access.");
+
+        
+     if (document.forms[0].userAge.value <18|| document.forms[0].userAge.value >100){
+        alert("Age is less than 18. You do not have access.");
         return false;
     }
+    if(document.forms[0].userCity.value == ""){
+        alert("City cannot be empty");
+        return false;} 
     alert("Name and age are valid.");
     return true;
 }
