@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<title>Lewey Chapter14HandsOnExercise</title> 
+		<meta charset="utf-8"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+		<style>
+input { display: block;
+        margin-bottom: 1em;}
+            
+label { float: left;
+        width: 5em;
+		padding-right: 1em;
+        text-align: right; }
+
+
+            
+h1{font-family:sans-serif;
+    background-color: #FFFFFF;
+    padding:15px 15px 15px;
+            }
+form {border: 2px solid;
+    padding: 20px 2px 0px;
+    background-color: lightgray;}
+
+body{background-color: darkgrey;}
+        
+#submit { margin-left: 7em; }
+#details {display: none;}
+            
+/* For devices 400px and larger: */
+@media only screen and (min-device-width: 400px) {
+    .fotorama__img {width: 400px;}
+
+    @media only screen and (max-device-width: 1024px) {
+        .fotorama__img {height: auto;}
+        
+    }
+        
+		</style>
+        
+	</head> 
+<body> 
+<h1> Javascript Form</h1>
+<form method="post"
+      action="http://webdevbasics.net/scripts/demo.php"
+      onsubmit="return validateForm();">
+<label for="userName">Name:</label>
+<input type="text" name="userName" id="userName">
+<label for="userAge">Age:</label>
+<input type="text" name="userAge" id="userAge">
+<label for="userCity">City:</label>
+<input type="text" name="userCity" id="userCity">
+
+<input type="submit" value="Send information" id="submit">
+</form>
+<h1> My Personal Favorite Photos</h1>
+    <p>Below are some of my all-time favorite photography photos that Ive taken myself through the last year or two. Enjoy!</p>
+    
+<div class="fotorama" data autoplay="true">
+    <img src="NWFireworks.jpg" data-caption="Northwest Fireworks 2020" alt="Northwest Fireworks 2020"> 
+    <img src="Flordia2020.jpg" data-caption="Florida Surfer" alt="Surfer">
+    <img src="NWFootball.jpg" data-caption="NWMSU Football" alt="NWMSU Football">
+    <img src="BeckySister.jpg" data-caption="Becky, My triplet sister" alt="Sister">
+    <img src="AshleyWedding.jpg" data-caption="Wedding" alt="Wedding">
+    <img src="moon.jpg" data-caption="Picture taken in Cameron, MO" alt="Moon photo">
+</div>
+    
+<script>
+function validateForm(){
+    if(document.forms[0].userName.value == ""){
+        alert("Name field cannot be empty");
+        return false; 
+}
+
+        
+     if (document.forms[0].userAge.value <18|| document.forms[0].userAge.value >100){
+        alert("Age is less than 18. You do not have access.");
+        return false;
+    }
+    if(document.forms[0].userCity.value == ""){
+        alert("City cannot be empty");
+        return false;} 
+    alert("Name and age are valid.");
+    return true;
+}
+    $(document).ready(function(){
+        $('#more').click(function(){
+            $('#details').toggle();
+        });
+    });
+    
+     
+</script>
+    
+
+</body> 
+</html> 
